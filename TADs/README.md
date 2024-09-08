@@ -13,8 +13,6 @@ A principal ideia dos TADs é **separar a especificação da implementação**, 
 
 ### Especificação e Implementação
 
-Para implementar um TAD em linguagens como C, geralmente se separa a **especificação** da **implementação:**
-
 - **Especificação (Arquivo de Cabeçalho `.h`):** Contém as assinaturas das funções, definições de tipos, e possivelmente variáveis globais e documentação.
     - Exemplo: exemplo_tad.h
         - Protótipos das funções (Assinaturas).
@@ -34,7 +32,7 @@ O TAD intList permite operações como:
 - ** Destruição de uma lista(`destroy`): Libera a memória alocada pela lista.
 - ** Obtenção do tamanho e capacidade(`size` e `capacity`): Funções que retornam o tamanho atual e a capacidade da lista.
 - ** Manipulação de elementos(`get`, `set` e `append`): Funções para acessar, modificar e adicionar elementos na lista.
-- ** Remoção de itens da lista(`remove`): Função para remover um item contido na lista.
+- ** Remoção de itens da lista(`removeAt`): Função para remover um item em determinado index.
 - ** Impressão da lista(`print`): Exibe os elementos contidos na lista.
 
 ### Vantagens dos TADs:
