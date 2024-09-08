@@ -11,7 +11,7 @@ struct intList {
 intList create(int capacity) {
   intList list = (intList)malloc(sizeof(struct intList));
   if (list == NULL) {
-    perror("Failed to create list");
+    fprintf(stderr, "Failed to create list");
     exit(EXIT_FAILURE);
   }
 
@@ -20,7 +20,7 @@ intList create(int capacity) {
 
   list->data = (int*)calloc(capacity, sizeof(int));
   if (list->data == NULL) {
-    perror("Failed to allocate data array");
+    fprintf(stderr, "Failed to allocate data array");
     exit(EXIT_FAILURE);
   }
 
@@ -51,7 +51,7 @@ void append(intList list, int value) {
   if (list->size < list->capacity) {
   list->data[list->size++] = value;
   } else {
-    fprintf(stderr, "ERROR in 'append'\n");
+    fprintf(stderr, "ERROR in 'append': ");
     fprintf(stderr, "The list is full.");
     exit(-1);
   }
@@ -69,9 +69,9 @@ int get(intList list, int index) {
   if (index >= 0 && index < list->capacity) {
     return list->data[index];
   } else {
-    fprintf(stderr, "ERROR in 'get'\n");
+    fprintf(stderr, "ERROR in 'get': ");
     fprintf(stderr, "Index out of bounds.");
-    exit(-1);
+    exit(EXIT_FAILURE);
   }
 }
 
@@ -79,24 +79,27 @@ void set(intList list, int index, int value) {
   if (index >= 0 && index < list->capacity) {
     list->data[index] = value;
   } else {
-    fprintf(stderr, "ERROR in 'set'\n");
+    fprintf(stderr, "ERROR in 'set': ");
     fprintf(stderr, "Index out of bounds.");
-    exit(-1);
+    exit(EXIT_FAILURE);
   }
 }
 
+void removeAt(intList list, int index) {
+  if (index < 0 || index > list->capacity) {
+    fprintf(stderr, "ERROR in 'remove': ");
+    fprintf(stderr, "Index out of bounds.");
+    exit(EXIT_FAILURE);
+  } else if (index >= list->size) {
+    fprintf(stderr, "ERROR in 'remove': ");
+    fprintf(stderr, "No element at index %d", index);
+    exit(EXIT_FAILURE);
+  }
 
-// void remove(intList list, int index) {
-//   if (index < 0 || index > list->capacity) {
-//     fprintf(stderr, "ERROR in 'remove'\n");
-//     fprintf(stderr, "Index out of bounds.");
-//     exit(-1);
-//   } 
+  for (int i = index; i < list->size - 1; i++) {
+    list->data[i] = list->data[i + 1];
+  }
+  list->data[list->size - 1] = 0;
 
-//   for (int i = index; i < list->size - 1; i++) {
-//     list->data[i] = list->data[i + 1];
-//   }
-//   list->data[list->size - 1] = 0;
-
-//   list->size--;
-// }
+  list->size--;
+}

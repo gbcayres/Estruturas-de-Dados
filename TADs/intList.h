@@ -8,4 +8,4 @@ int capacity(intList list);
 int get(intList list, int index);
 void set(intList list, int index, int value);
 void print(intList list);
-// void remove(intList list, int index);
+void removeAt(intList list, int index);

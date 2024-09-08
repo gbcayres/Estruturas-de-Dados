@@ -2,8 +2,10 @@
 #include "intList.h"
 
 int main(void) {
+  puts("Creating intList of size 10.");
   intList list = create(10);
 
+  puts("\nAppending 10, 5, 20, 50, 2");
   append(list, 10);
   append(list, 5);
   append(list, 20);
@@ -11,6 +13,7 @@ int main(void) {
   append(list, 2);
   print(list);
 
+  puts("\nSetting list[4] to 640.");
   set(list, 4, 640);
   print(list);
 
@@ -18,8 +21,9 @@ int main(void) {
   printf("\nList capacity: %d\n", capacity(list));
   printf("\nlist[%d]: %d\n", 5, get(list, 5));
 
-  // remove(list, 5);
-  // print(list);
+  puts("\nRemoving element at index 3.");
+  removeAt(list, 3);
+  print(list);
 
   destroy(&list);
 
