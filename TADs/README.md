@@ -28,12 +28,12 @@ Implementei um TAD chamado intList, uma lista de inteiros com capacidade estáti
 
 O TAD intList permite operações como:
 
-- ** Criação de uma lista(`create`): Inicializa uma lista com capacidade definida.
-- ** Destruição de uma lista(`destroy`): Libera a memória alocada pela lista.
-- ** Obtenção do tamanho e capacidade(`size` e `capacity`): Funções que retornam o tamanho atual e a capacidade da lista.
-- ** Manipulação de elementos(`get`, `set` e `append`): Funções para acessar, modificar e adicionar elementos na lista.
-- ** Remoção de itens da lista(`removeAt`): Função para remover um item em determinado index.
-- ** Impressão da lista(`print`): Exibe os elementos contidos na lista.
+- **Criação de uma lista(`create`)**: Inicializa uma lista com capacidade definida.
+- **Destruição de uma lista(`destroy`)**: Libera a memória alocada pela lista.
+- **Obtenção do tamanho e capacidade(`size` e `capacity`)**: Funções que retornam o tamanho atual e a capacidade da lista.
+- **Manipulação de elementos(`get`, `set` e `append`)**: Funções para acessar, modificar e adicionar elementos na lista.
+- **Remoção de itens da lista(`removeAt`)**: Função para remover um item em determinado index.
+- **Impressão da lista(`print`)**: Exibe os elementos contidos na lista.
 
 ### Vantagens dos TADs:
 
