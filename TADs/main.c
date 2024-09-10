@@ -17,9 +17,9 @@ int main(void) {
   set(list, 4, 640);
   print(list);
 
-  printf("\nList size: %d\n", size(list));
-  printf("\nList capacity: %d\n", capacity(list));
-  printf("\nlist[%d]: %d\n", 5, get(list, 5));
+  printf("\nsize(list): %d\n", size(list));
+  printf("\ncapacity(list): %d\n", capacity(list));
+  printf("\nget(list, 4): %d\n", get(list, 4));
 
   puts("\nRemoving element at index 3.");
   removeAt(list, 3);

@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "intList.h"
 
 struct intList {
@@ -27,10 +28,16 @@ intList create(int capacity) {
   return list;
 }
 
+bool indexInBounds(int index, int size) {
+  return (index >= 0 && index < size);
+}
+
 void destroy(intList *listPtr) {
-  free((*listPtr)->data);
-  free(*listPtr);
-  *listPtr = NULL;
+  if (*listPtr != NULL) {
+    free((*listPtr)->data);
+    free(*listPtr);
+    *listPtr = NULL;
+  }
 }
 
 
@@ -53,7 +60,7 @@ void append(intList list, int value) {
   } else {
     fprintf(stderr, "ERROR in 'append': ");
     fprintf(stderr, "The list is full.");
-    exit(-1);
+    exit(EXIT_FAILURE);
   }
 }
 
@@ -66,7 +73,7 @@ int capacity(intList list) {
 }
 
 int get(intList list, int index) {
-  if (index >= 0 && index < list->capacity) {
+  if (indexInBounds(index, size(list))) {
     return list->data[index];
   } else {
     fprintf(stderr, "ERROR in 'get': ");
@@ -76,7 +83,7 @@ int get(intList list, int index) {
 }
 
 void set(intList list, int index, int value) {
-  if (index >= 0 && index < list->capacity) {
+  if (indexInBounds(index, size(list))) {
     list->data[index] = value;
   } else {
     fprintf(stderr, "ERROR in 'set': ");
@@ -86,7 +93,7 @@ void set(intList list, int index, int value) {
 }
 
 void removeAt(intList list, int index) {
-  if (index < 0 || index > list->capacity) {
+  if (!indexInBounds(index, size(list))) {
     fprintf(stderr, "ERROR in 'remove': ");
     fprintf(stderr, "Index out of bounds.");
     exit(EXIT_FAILURE);
