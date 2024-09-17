@@ -1,5 +1,5 @@
 # Árvores
-Uma árvore é uma estrutura de dados hierárquica que consiste em nós conectados por arestas. É um modelo abstrato que imita a estrutura hierárquica de árvores naturais. Uma árvore tem um nó raiz, e cada nó tem zero ou mais nós filhos, formando uma estrutura que lembra uma árvore invertida.
+Uma árvore é uma estrutura de dados hierárquica que consiste em nós conectados por arestas. É um modelo abstrato que imita a estrutura hierárquica de árvores naturais. Uma árvore consiste em um nó raiz, a partir do qual se ramificam outros nós, chamados de filhos. Cada nó pode ter zero ou mais filhos, formando uma estrutura que lembra uma árvore invertida.
 
 ---
 
@@ -37,13 +37,13 @@ Entender esses termos estabelece a base para explorar os diversos tipos de árvo
 
 Existem muitos tipos de árvores em estruturas de dados, cada uma projetada para atender a diferentes requisitos de desempenho e organização de dados. Algumas são otimizadas para busca, outras para balanceamento ou operações rápidas de inserção e remoção. Abaixo, estão alguns dos tipos mais comuns e amplamente utilizados:
 
-- **Árvore Binária:**
+- **Árvore Binária:** Cada nó tem no máximo dois filhos, conhecidos como filho esquerdo e direito. É a base para estruturas mais complexas, como árvores binárias de busca.
 
-- **Árvore Binaria de Busca:**
+- **Árvore Binaria de Busca (BST):** Uma árvore binária onde, para cada nó, todos os nós à esquerda têm valores menores e todos os nós à direita têm valores maiores. Isso permite uma busca eficiente, com complexidade média de O(log n).
 
-- **Árvore AVL**
+- **Árvore AVL**: Uma árvore binária de busca balanceada onde a diferença de altura entre os subárvores esquerda e direita de qualquer nó é no máximo 1. As árvores AVL garantem que a árvore permaneça balanceada, otimizando operações de inserção e busca.
 
-- **Heap**
+- **Heap**: Uma árvore binária usada em filas de prioridade, onde o valor em cada nó é maior (max-heap) ou menor (min-heap) do que os valores de seus filhos. Heaps são frequentemente usados para implementar o algoritmo de ordenação Heap Sort.
 
 ---
 
