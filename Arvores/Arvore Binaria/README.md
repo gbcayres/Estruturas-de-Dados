@@ -1,5 +1,5 @@
 # Árvores Binárias
-Uma **árvore binária** é uma estrutura de dados de árvore na qual cada nó tem no máximo dois filhos, chamados de filho esquerdo e filho direito. Cada nó em uma árvore binária pode ter zero, um ou dois filhos, e sua estrutura consiste em:
+Uma **árvore binária** é uma variação de árvore na qual cada nó tem no máximo dois filhos. Cada nó em uma árvore binária pode ter zero, um ou dois filhos, e sua estrutura consiste em:
 
 - Dado.
 - Ponteiro para o filho esquerdo.
@@ -11,11 +11,11 @@ Uma **árvore binária** é uma estrutura de dados de árvore na qual cada nó
 
 ## Propriedades de Árvores Binárias
 
-- O número máximo de nós em um nível L de uma árvore binária é *2 ^ L.*
-- O número máximo de nós em uma árvore binária de altura H é *2 ^ H - 1.*
+- O número máximo de nós em um nível L de uma árvore binária é $$2^L$$.
+- O número máximo de nós em uma árvore binária de altura H é $$2 ^ H - 1$$.
 - O número total de folhas em uma árvore binária é o *total de nós com 2 filhos + 1*
-- Em uma árvore binária com N nós, a altura mínima ou o mínimo de níveis é *Log2(N + 1).*
-- Uma árvore binária com F folhas tem pelo menos *| Log2L | + 1* níveis.
+- Em uma árvore binária com N nós, a altura mínima ou o mínimo de níveis é $$Log2(N + 1)$$.
+- Uma árvore binária com F folhas tem pelo menos $$\lceil \log_2(F) \rceil + 1$$ níveis.
 
 ---
 
