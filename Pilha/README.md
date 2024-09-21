@@ -18,7 +18,7 @@ As pilhas oferecem um conjunto básico de operações que incluem:
 
 - **Empilhar(Push)**: Adiciona um elemento ao topo da pilha.
 - **Desempilhar(Pop)**: Remove e retorna o elemento do topo da pilha.
-- **Topo(Peek)**: Retorna o elemento no topo da pilha sem removê-lo
+- **Topo(Top)**: Retorna o elemento no topo da pilha sem removê-lo
 - **EstaVazia(IsEmpty)**: Verifica se a pilha está vazia.
 - **EstaCheia(IsFull)**: Verifica se a pilha está cheia.
 
