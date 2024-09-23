@@ -10,7 +10,7 @@ void destroyStaticStack(StaticStack **stackPointerRef);
 
 bool isEmpty(const StaticStack *stack);
 bool isFull(const StaticStack *stack);
-int top(const StaticStack *stack);
+int peek(const StaticStack *stack);
 
 void push(StaticStack *stack, int value);
 int pop(StaticStack *stack);

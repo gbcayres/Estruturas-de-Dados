@@ -75,9 +75,9 @@ int pop(StaticStack *stack) {
   return aux;
 }
 
-int top(const StaticStack *stack) {
+int peek(const StaticStack *stack) {
   if (isEmpty(stack)) {
-    perror("ERROR in 'top()'");
+    perror("ERROR in 'peek()'");
     perror("The stack is empty!");
     exit(EXIT_FAILURE);
   }
@@ -86,8 +86,14 @@ int top(const StaticStack *stack) {
 }
 
 void printStack(const StaticStack *stack) {
-  printf("capacity: %d\n", stack->capacity);
-  printf("top: %d\n", top(stack));
+  printf("\ncapacity: %d\n", stack->capacity);
+  printf("top: %d\n", stack->top);
+
+  if (isEmpty(stack)) {
+    printf("the stack is empty.\n");
+    return;
+  }
+
   printf("elements:\n");
   for (int i = 0; i <= stack->top; i++) {
     printf("stack[%d]: %d\n", i, stack->data[i]);
