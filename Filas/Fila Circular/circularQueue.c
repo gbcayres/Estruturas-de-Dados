@@ -18,11 +18,23 @@ StaticQueue* createStaticQueue(int capacity) {
   }
 
   StaticQueue *queue = (StaticQueue*)malloc(sizeof(StaticQueue)); 
+  if (!queue) {
+    perror("ERROR in 'createStaticQueue()'");
+    perror("Failed to allocate memory.");
+    exit(EXIT_FAILURE);
+  }
+
   queue->capacity = capacity;
   queue->size = 0;
   queue->front = 0;
   queue->rear = 0;
   queue->data = (int*)malloc(capacity * sizeof(int));
+
+  if (!queue->data) {
+    perror("ERROR in 'createStaticQueue()'");
+    perror("Failed to allocate memory.");
+    exit(EXIT_FAILURE);
+  }
 
   return queue;
 }
@@ -81,7 +93,8 @@ void enqueue(StaticQueue *queue, int value) {
     exit(EXIT_FAILURE);
   }
 
-  queue->data[queue->rear++] = value;
+  queue->data[queue->rear] = value;
+  queue->rear = (queue->rear + 1) % queue->capacity;
   queue->size++;
 }
 
@@ -92,8 +105,11 @@ int dequeue(StaticQueue *queue) {
     exit(EXIT_FAILURE);
   }
 
-  int removed = queue->data[queue->front++];
+  int removed = queue->data[queue->front];
+
+  queue->front =  (queue->front + 1) % queue->capacity;
   queue->size--;
+
   return removed;
 }
 
@@ -109,7 +125,9 @@ void printQueue(StaticQueue *queue) {
   }
 
   printf("elements:\n");
-  for (int i = queue->front; i < queue->rear; i++) {
-    printf("queue[%d]: %d\n", i, queue->data[i]);
+  int index = queue->front;
+  for (int i = 0; i < queue->size; i++) {
+    printf("queue[%d]: %d\n", index, queue->data[index]);
+    index = (index + 1) % queue->capacity;
   }
 }
