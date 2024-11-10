@@ -2,19 +2,19 @@
 #define STATIC_QUEUE_H
 #include <stdbool.h>
 
-typedef struct staticQueue StaticQueue;
+typedef struct circularQueue CircularQueue;
 
-StaticQueue* createStaticQueue(int capacity);
-void destroyStaticQueue(StaticQueue **queuePointerRef);
+CircularQueue* createCircularQueue(int capacity);
+void destroyCircularQueue(CircularQueue **queuePointerRef);
 
-bool isEmpty(StaticQueue *queue);
-bool isFull(StaticQueue *queue);
-int size(StaticQueue *queue);
-int peek(StaticQueue *queue);
+bool isEmpty(CircularQueue *queue);
+bool isFull(CircularQueue *queue);
+int size(CircularQueue *queue);
+int peek(CircularQueue *queue);
 
-void enqueue(StaticQueue *queue, int value);
-int dequeue(StaticQueue *queue);
+void enqueue(CircularQueue *queue, int value);
+int dequeue(CircularQueue *queue);
 
-void printQueue(StaticQueue *queue);
+void printQueue(CircularQueue *queue);
 
 #endif

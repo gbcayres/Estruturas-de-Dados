@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdio.h>
-#include "staticQueue.h"
+#include "circularQueue.h"
 
 int main(void) {
-  printf("creating Static Queue...\n");
-  StaticQueue *queue = createStaticQueue(5);
+  printf("creating Circular Queue...\n");
+  CircularQueue *queue = createCircularQueue(5);
 
   printf("\nis empty? %d\n", isEmpty(queue));
   printf("is full? %d\n", isFull(queue));

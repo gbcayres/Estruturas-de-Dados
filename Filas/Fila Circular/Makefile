@@ -1,5 +1,5 @@
 compile:
-	gcc main.c staticQueue.c -o program
+	gcc main.c circularQueue.c -o program
 
 run:
 	./program

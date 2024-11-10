@@ -1,25 +1,25 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "staticQueue.h"
+#include "circularQueue.h"
 
-typedef struct staticQueue {
+typedef struct circularQueue {
   int capacity;
   int size;
   int front;
   int rear;
   int *data;
-} StaticQueue;
+} CircularQueue;
 
-StaticQueue* createStaticQueue(int capacity) {
+CircularQueue* createCircularQueue(int capacity) {
   if (capacity <= 0 ) {
     perror("ERROR in 'createStaticQueue()'\n");
     perror("Invalid capacity.");
     exit(EXIT_FAILURE);
   }
 
-  StaticQueue *queue = (StaticQueue*)malloc(sizeof(StaticQueue)); 
+  CircularQueue *queue = (CircularQueue*)malloc(sizeof(CircularQueue)); 
   if (!queue) {
-    perror("ERROR in 'createStaticQueue()'");
+    perror("ERROR in 'createCircularQueue()'");
     perror("Failed to allocate memory.");
     exit(EXIT_FAILURE);
   }
@@ -31,7 +31,7 @@ StaticQueue* createStaticQueue(int capacity) {
   queue->data = (int*)malloc(capacity * sizeof(int));
 
   if (!queue->data) {
-    perror("ERROR in 'createStaticQueue()'");
+    perror("ERROR in 'createCircularQueue()'");
     perror("Failed to allocate memory.");
     exit(EXIT_FAILURE);
   }
@@ -39,14 +39,14 @@ StaticQueue* createStaticQueue(int capacity) {
   return queue;
 }
 
-void destroyStaticQueue(StaticQueue **queuePointerRef) {
+void destroyCircularQueue(CircularQueue **queuePointerRef) {
   free((*queuePointerRef)->data);
   free(*queuePointerRef);
 
   *queuePointerRef = NULL;
 }
 
-bool isEmpty(StaticQueue *queue) {
+bool isEmpty(CircularQueue *queue) {
   if (queue == NULL) {
     perror("ERROR in 'isEmpty()'");
     perror("Invalid queue.");
@@ -56,7 +56,7 @@ bool isEmpty(StaticQueue *queue) {
   return queue->size == 0;
 }
 
-bool isFull(StaticQueue *queue) {
+bool isFull(CircularQueue *queue) {
   if (queue == NULL) {
     perror("ERROR in 'isFull()'");
     perror("Invalid queue.");
@@ -66,7 +66,7 @@ bool isFull(StaticQueue *queue) {
   return queue->size == queue->capacity;
 }
 
-int size(StaticQueue *queue) {
+int size(CircularQueue *queue) {
   if (queue == NULL) {
     perror("ERROR in 'size()'");
     perror("Invalid queue.");
@@ -76,7 +76,7 @@ int size(StaticQueue *queue) {
   return  queue->size;
 }
 
-int peek(StaticQueue *queue) {
+int peek(CircularQueue *queue) {
   if (isEmpty(queue)) {
     perror("ERROR in 'peek()'");
     perror("The queue is empty.");
@@ -86,7 +86,7 @@ int peek(StaticQueue *queue) {
   return queue->data[queue->front];
 }
 
-void enqueue(StaticQueue *queue, int value) {
+void enqueue(CircularQueue *queue, int value) {
   if (isFull(queue)) {
     perror("ERROR in enqueue()");
     perror("The queue is full.");
@@ -98,7 +98,7 @@ void enqueue(StaticQueue *queue, int value) {
   queue->size++;
 }
 
-int dequeue(StaticQueue *queue) {
+int dequeue(CircularQueue *queue) {
   if (isEmpty(queue)) {
     perror("ERROR in dequeue()");
     perror("The queue is empty.");
@@ -113,7 +113,7 @@ int dequeue(StaticQueue *queue) {
   return removed;
 }
 
-void printQueue(StaticQueue *queue) {
+void printQueue(CircularQueue *queue) {
   printf("\ncapacity: %d\n", queue->capacity);
   printf("size: %d\n", queue->size);
   printf("front: %d\n", queue->front);
