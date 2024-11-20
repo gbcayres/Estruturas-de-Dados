@@ -49,8 +49,6 @@ As listas encadeadas podem ser classificadas em diferentes tipos com base na org
 
 * A inserção e remoção de nós requer apenas a atualização dos ponteiros, reduzindo o custo computacional comparado a outras estruturas.
 
-* Em listas duplamente encadeadas, um nó adicional chamado cauda (tail) pode ser usado para otimizar operações no final da lista.
-
 ---
 
 ## Aplicações de Listas Encadeadas
