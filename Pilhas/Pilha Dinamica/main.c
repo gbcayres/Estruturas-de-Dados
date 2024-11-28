@@ -24,6 +24,8 @@ int main(void) {
 
   printStack(stack);
 
+  printf("\nsize: %d\n", size(stack));
+
   printf("\ntop: %d\n", peek(stack));
 
   destroyStack(&stack);

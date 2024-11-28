@@ -90,6 +90,7 @@ void push(DynamicStack *stack, int value) {
   newNode->next = stack->top;
 
   stack->top = newNode;
+  stack->size++;
 }
 
 int pop(DynamicStack *stack) {
@@ -120,4 +121,8 @@ void printStack(const DynamicStack *stack) {
     printf("%d\n", current->data);
     current = current->next;
   }
+}
+
+int size(const DynamicStack *stack) {
+  return stack->size;
 }
